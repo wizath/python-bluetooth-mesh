@@ -626,6 +626,10 @@ class ManagementInterface:
     async def delete_remote_node(self, primary: int, count: int) -> None:
         await self._interface.call_delete_remote_node(primary, count)
 
+    async def export_keys(self) -> Dict[str, Any]:
+        """Export network keys, application keys and device keys from keyring"""
+        return await self._interface.call_export_keys()
+
 
 class TCPServerService:
     NAME = "org.bluez.mesh"
